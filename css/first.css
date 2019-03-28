@@ -1,0 +1,33 @@
+/*              Author: Richard Myatt
+                Date: 24 March 2019
+
+                Revision: 25 March 2019 - Added cross browser support.
+
+                A simple example of the web audio API which shows how and
+                oscillator can be connected to an AudioContext to generate
+                a tone.
+*/
+
+body {
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+.container {
+  width: 100px;
+  height: 100px;
+  margin-left: 20px;
+  border-radius: 50%;
+  -webkit-box-shadow: 3px 6px 2px #888;
+          box-shadow: 3px 6px 2px #888;
+}
+
+#notes {
+  width: 500px;
+  text-align: justify;
+  margin-left: 20px;
+}

@@ -1,0 +1,100 @@
+<svg id="keys" width="175" height="135" viewBox="0 0 175 135"
+      xmlns="http://www.w3.org/2000/svg">
+      <title>Basic Keyboard Set</title>
+      <desc>Seven white keys and five black</desc>
+
+      <defs>
+
+        <style type="text/css">
+          <![CDATA[
+
+          .white {
+            fill: #ffffef;
+            stroke: #000;
+            stroke-width: 1px;
+          }
+
+          .black {
+            fill: #222;
+            stroke: #000;
+            stroke-width: 1px;
+          }
+
+          ]]>
+        </style>
+
+        <!-- white key -->
+        <rect id="whiteKey" class="white" x="0" y="0" width="25" height="135">
+          <animate
+            attributeName="fill"
+            to="yellow"
+            dur="0.1s"
+            begin="mousedown"
+            fill="freeze" />
+          <animate
+            attributeName="fill"
+            to="#ffffef"
+            dur="0.1s"
+            begin="mouseup"
+            fill="freeze" />
+          <animate
+            attributeName="fill"
+            to="#eee"
+            dur="0.1s"
+            begin="mouseenter"
+            fill="freeze" />
+          <animate
+            attributeName="fill"
+            to="#ffffef"
+            dur="0.1s"
+            begin="mouseleave"
+            fill="freeze" />
+        </rect>
+
+        <!-- black key -->
+        <rect id="blackKey" class="black" x="0" y="0" width="14" height="85">
+          <animate
+            attributeName="fill"
+            to="yellow"
+            dur="0.1s"
+            begin="mousedown"
+            fill="freeze" />
+          <animate
+            attributeName="fill"
+            to="#222"
+            dur="0.1s"
+            begin="mouseup"
+            fill="freeze" />
+          <animate
+            attributeName="fill"
+            to="#666"
+            dur="0.1s"
+            begin="mouseenter"
+            fill="freeze" />
+          <animate
+            attributeName="fill"
+            to="#222"
+            dur="0.1s"
+            begin="mouseleave"
+            fill="freeze" />
+        </rect>
+
+      </defs>
+
+      <!-- keyboard white and black keys -->
+      <use xlink:href="#whiteKey" />
+      <use xlink:href="#whiteKey" x="25"/>
+      <use xlink:href="#whiteKey" x="50"/>
+      <use xlink:href="#whiteKey" x="75"/>
+      <use xlink:href="#whiteKey" x="100"/>
+      <use xlink:href="#whiteKey" x="125"/>
+      <use xlink:href="#whiteKey" x="150"/>
+
+      <use xlink:href="#blackKey" x="15" />
+      <use xlink:href="#blackKey" x="46" />
+      <use xlink:href="#blackKey" x="90" />
+      <use xlink:href="#blackKey" x="118" />
+      <use xlink:href="#blackKey" x="146" />
+
+  </svg>
+

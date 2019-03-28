@@ -1,0 +1,72 @@
+<!--            Author: Richard Myatt
+                Date: 24 March 2019
+
+                Revision: 25 March 2019 - Added cross browser support.
+
+                A simple example of the web audio API which shows how and
+                oscillator can be connected to an AudioContext to generate
+                a tone.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/first.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A First Look at Web Audio</title>
+</head>
+<body>
+
+  <h1>A First Look at Web Audio</h1>
+
+  <!-- provide a button to play our audio -->
+  <div class="container">
+    <svg id="svgBtn" width="100%" height="100%" viewBox="0 0 110 110"
+        xmlns="http://www.w3.org/2000/svg">
+        <title>Play/Stop button</title>
+        <desc>Outline image for Play/Stop button for use in audio apps</desc>
+
+        <g id="playButton">
+
+          <!-- button background -->
+          <circle id="bg" cx="55" cy="55" r="50"
+            style="fill: lightyellow; stroke: #aaa;" />
+
+          <!-- play icon -->
+          <path id="play" d="M 40 25 l 52 30 l-52 30 z"
+            style="fill: green; stroke: none; fill-opacity: 1;" />
+
+          <!-- pause icon -->
+          <g id="pause"
+            style="fill: #888; stroke: none; fill-opacity: 0;">
+
+            <rect id="stop" x="30" y="30" width="20" height="50" />
+            <rect id="stop" x="60" y="30" width="20" height="50" />
+
+          </g>
+
+        </g>
+
+    </svg>
+  </div>
+
+
+
+  <div id="notes">
+
+    <h3>Notes</h3>
+
+    <p>A simple example of the web audio API which shows how and oscillator can be connected to an AudioContext to generate a tone.  Please note that when the oscillator is stopped the oscillator object is no longer available and must be recreated.</p>
+
+    <p>Please see the accompanying code for details.</p>
+
+  </div>
+
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>-->
+  <script src="snap/snap.svg-min.js"></script>
+  <script src="js/first.js"></script>
+
+</body>
+</html>

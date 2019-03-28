@@ -1,0 +1,5 @@
+building a synthesizer - https://medium.com/@mautayro/creating-a-basic-computer-keyboard-controlled-synthesizer-with-the-web-audio-api-8a3d0ab1d65e
+
+virtual keyboard - https://recursivearts.com/virtual-piano/
+
+Playing with MIDI in JavaScript - https://medium.com/swinginc/playing-with-midi-in-javascript-b6999f2913c3
