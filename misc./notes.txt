@@ -3,3 +3,13 @@ building a synthesizer - https://medium.com/@mautayro/creating-a-basic-computer-
 virtual keyboard - https://recursivearts.com/virtual-piano/
 
 Playing with MIDI in JavaScript - https://medium.com/swinginc/playing-with-midi-in-javascript-b6999f2913c3
+
+FreePats - http://freepats.zenvoid.org/Piano/acoustic-grand-piano.html
+
+Electronic music studio - http://theremin.music.uiowa.edu/MISpiano.html
+
+Archive - http://theremin.music.uiowa.edu/MISpiano.html
+
+http://wiki.laptop.org/go/Free_sound_samples#The_Zenph_Studios_Yamaha_Disklavier_Pro_Piano_Multisamples_for_OLPC
+
+Freesound - https://freesound.org/people/pinkyfinger/packs/4409/
