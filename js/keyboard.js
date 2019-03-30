@@ -1,4 +1,13 @@
+/*            Author: Richard Myatt
+              Date: 30 March 2019
+
+              An octave keyboard using the web audio API oscillators to provide
+              tones from Middle C to Tenor C (C4 - C5).
+*/
+
 // establish variables
+var s, bg, oscBtn, btnText, oscText, btnCover, decLine;
+var keyboardGroup;
 var notes, whiteKeys, blackKeys;
 var allKeys;
 var audioContext, osc, oscillators;
@@ -25,59 +34,61 @@ notes = {
   "C5"   : 523.251             // Tenor C
 };
 
+// assign notes to keys
 whiteKeys = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"];
 blackKeys = ["Csh4", "Dsh4", "Fsh4", "Gsh4", "Ash4"];
 
 // obtaine a reference to the svg in the dom
-var s = Snap("#oscKeyboard");
+s = Snap("#oscKeyboard");
 
 // add a background -->
-var bg = s.rect(0, 0, "100%", "100%", 5, 5);
+bg = s.rect(0, 0, "100%", "100%", 5, 5);
 bg.attr({
   fill: "#333"
 });
 
 // add a button to select the oscillator
-var oscBtn = s.rect(10, 15, 60, 20, 3, 3);
+oscBtn = s.rect(10, 15, 60, 20, 3, 3);
 oscBtn.attr({
   fill: "blue"
 });
 
-
-
-var btnText = s.text(40, 28, oscType);
+// provide text to the button selector
+btnText = s.text(40, 28, oscType);
 btnText.attr({
   fill: "yellow",
   "font-size": 10,
   "text-anchor": "middle"
 });
 
-var oscText = s.text(80, 28, "- oscillator type");
+// label the oscillator selector buttons purpose
+oscText = s.text(80, 28, "- oscillator type");
 oscText.attr({
   fill: "#fff",
   "font-size": 10
 });
 
-var btnCover = s.rect(10, 15, 60, 20, 3, 3);
+// provide a rectangle for the click events
+btnCover = s.rect(10, 15, 60, 20, 3, 3);
 btnCover.attr({
   "fill-opacity": 0
 });
 
 
 // add a decorative red line
-var decLine = s.line(11, 54, 210, 53);
+decLine = s.line(11, 54, 210, 53);
 decLine.attr({
   stroke: "red",
   "stroke-width": 3
 });
 
 // create a group to load our external svg
-var keyboardGroup = s.group();
+keyboardGroup = s.group();
 keyboardGroup.attr({
   transform: "translate(10, 55)"
 });
 
-Snap.load("svg/octave_keyboard.svg", onSVGLoaded);
+Snap.load("https://cdn.jsdelivr.net/gh/aronnax77/web_audio_api/svg/octave_keyboard.svg", onSVGLoaded);
 
 function onSVGLoaded(data) {
   var fragment = data.selectAll("use");
@@ -105,8 +116,24 @@ var playNote = function(e) {
   playing = true;
 };
 
+// event handlers
 var stopNote = function() {
   osc.stop();
+  playing = false;
+};
+
+var touchPlayNote = function(ev) {
+  if(!playing) {
+    ev.preventDefault();
+    playNote(ev);
+  }
+};
+
+var touchStopNote = function(ev) {
+  if(playing) {
+    ev.preventDefault();
+    stopNote(ev);
+  }
 };
 
 function changeOscillator() {
@@ -120,7 +147,11 @@ function changeOscillator() {
   btnText.attr({text: oscType});
 }
 
+// define event listeners
 btnCover.click(changeOscillator);
 
 keyboardGroup.mousedown(playNote);
 keyboardGroup.mouseup(stopNote);
+
+keyboardGroup.touchstart(touchPlayNote);
+keyboardGroup.touchend(touchStopNote);
