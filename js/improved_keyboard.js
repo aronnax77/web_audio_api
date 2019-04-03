@@ -1,4 +1,6 @@
 var oscType = "sine";
+var playing = false;
+var keypressed;
 
 var notes = {
   "C4"   : 261.626,           // magSq()iddle C
@@ -42,11 +44,10 @@ keyboardGroup.attr({
   transform: "translate(10, 15)"
 });
 
-//https://cdn.jsdelivr.net/gh/aronnax77/web_audio_api/svg/octave_keyboard.svg
-
-Snap.load("svg/octave_keyboard_revised.svg", onSVGLoaded);
+Snap.load("https://cdn.jsdelivr.net/gh/aronnax77/web_audio_api/svg/octave_keyboard_revised.svg", onSVGLoaded);
 
 function onSVGLoaded(data) {
+
   var fragment = data.selectAll("use");
   // assign id's to all keys
   for(var i = 0; i < whiteKeys.length; i++) {
@@ -75,21 +76,25 @@ osc.start(0);
 function playNote(ev) {
   osc.frequency.value = notes[ev.target.id];
   gainNode.gain.value = 1;
+  playing = true;
 }
 
 function stopNote(ev) {
   gainNode.gain.value = 0;
+  playing = false;
 }
 
 var touchPlayNote = function(ev) {
   if(!playing) {
     ev.preventDefault();
+    keypressed = ev.target.id;
+    ev.target.style.fill = "yellow";
     playNote(ev);
   }
 };
 
 var touchStopNote = function(ev) {
-  if(playing) {
+  if(playing && (ev.target.id === keypressed)) {
     ev.preventDefault();
     stopNote(ev);
   }
