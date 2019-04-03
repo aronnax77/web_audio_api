@@ -1,0 +1,31 @@
+body {
+  background-color: #fff;
+}
+
+h1 {
+  text-align: center;
+  font-size: 25px;
+}
+
+.container {
+  width: 30vw;
+  margin: 30px auto;
+}
+
+@media only screen and (max-width: 1200px) {
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .container {
+    width: 50vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .container {
+    width: 90vw;
+  }
+}

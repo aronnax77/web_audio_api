@@ -1,0 +1,37 @@
+<!--            Author: Richard Myatt
+                Date: 3 April 2019
+
+                Using the web audio api this is an illustration of how the
+                addition of a 'gain' node will allow the volume to be adjusted.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/gain.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Volume Control</title>
+</head>
+<body>
+
+  <h1>Volume Control</h1>
+
+  <input type="range" min="0" max="1" step="0.01" value="0" name="volume" id="vol">
+  <label for="volume">Volume</label>
+
+  <div id="notes">
+
+    <h3>Notes</h3>
+
+    <p>Using the web audio api this is an illustration of how the addition of a 'gain' node will allow the volume to be adjusted.</p>
+
+    <p>Please see the accompanying code for details.</p>
+
+  </div>
+
+  <script src="js/gain.js"></script>
+
+</body>
+</html>

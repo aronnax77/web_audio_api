@@ -13,3 +13,8 @@ Archive - http://theremin.music.uiowa.edu/MISpiano.html
 http://wiki.laptop.org/go/Free_sound_samples#The_Zenph_Studios_Yamaha_Disklavier_Pro_Piano_Multisamples_for_OLPC
 
 Freesound - https://freesound.org/people/pinkyfinger/packs/4409/
+
+
+Playing notes with the Web Audio API Part 1 - Monophonic Synthesis - http://blog.chrislowis.co.uk/2013/06/05/playing-notes-web-audio-api.html
+
+Synthesis with the Web Audio API - Envelopes - http://blog.chrislowis.co.uk/2013/06/17/synthesis-web-audio-api-envelopes.html

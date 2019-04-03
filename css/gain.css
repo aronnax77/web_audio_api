@@ -1,0 +1,20 @@
+/*              Author: Richard Myatt
+                Date: 3 April 2019
+
+                Using the web audio api this is an illustration of how the
+                addition of a 'gain' node will allow the volume to be adjusted.
+*/
+
+h1, input {
+  margin-left: 20px;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+#notes {
+  width: 450px;
+  text-align: justify;
+  margin-left: 20px;
+}
