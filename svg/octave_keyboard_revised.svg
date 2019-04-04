@@ -4,34 +4,37 @@
       <title>One Octave Piano Keyboard</title>
       <desc>Eight white keys and five black giving one octave</desc>
 
-      <defs>
+      <g id="keys">
 
-        <!-- white key -->
-        <rect id="whiteKey" x="0" y="0" width="25" height="135" 
-			style="fill: #ffffef; stroke: #000; stroke-width: 1;" />
+        <!-- white keys -->
+        <g id="whiteKeys"
+          style="fill: #ffffef; stroke: #000; stroke-width: 1;">
 
-        <!-- black key -->
-        <rect id="blackKey" x="0" y="0" width="14" height="85" 
-			style="fill: #222; stroke: #000; stroke-width: 1;"/>
+          <rect id="C4" x="0" y="0" width="25" height="135" />
+          <rect id="D4" x="25" y="0" width="25" height="135" />
+          <rect id="E4" x="50" y="0" width="25" height="135" />
+          <rect id="F4" x="75" y="0" width="25" height="135" />
+          <rect id="G4" x="100" y="0" width="25" height="135" />
+          <rect id="A4" x="125" y="0" width="25" height="135" />
+          <rect id="B4" x="150" y="0" width="25" height="135" />
+          <rect id="C5" x="175" y="0" width="25" height="135" />
 
-      </defs>
+        </g>
 
-      <!-- keyboard white and black keys -->
-      <use xlink:href="#whiteKey" />
-      <use xlink:href="#whiteKey" x="25"/>
-      <use xlink:href="#whiteKey" x="50"/>
-      <use xlink:href="#whiteKey" x="75"/>
-      <use xlink:href="#whiteKey" x="100"/>
-      <use xlink:href="#whiteKey" x="125"/>
-      <use xlink:href="#whiteKey" x="150"/>
-      <use xlink:href="#whiteKey" x="175"/>
+        <!-- black keys -->
+        <g id="blackKeys"
+          style="fill: #222; stroke: #000; stroke-width: 1;">
 
-      <use xlink:href="#blackKey" x="15" />
-      <use xlink:href="#blackKey" x="46" />
-      <use xlink:href="#blackKey" x="90" />
-      <use xlink:href="#blackKey" x="118" />
-      <use xlink:href="#blackKey" x="146" />
+          <rect id="Csh4" x="15" y="0" width="14" height="85" />
+          <rect id="Dsh4" x="46" y="0" width="14" height="85" />
+          <rect id="Fsh4" x="90" y="0" width="14" height="85" />
+          <rect id="Gsh4" x="118" y="0" width="14" height="85" />
+          <rect id="Ash4" x="146" y="0" width="14" height="85" />
 
+        </g>
+
+      </g>
 
   </svg>
+
 
