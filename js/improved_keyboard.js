@@ -1,3 +1,11 @@
+/*            Author: Richard Myatt
+              Date: 5 April 2019
+
+              Improved monophonic keyboard.
+*/
+
+alert("Please note that this code has been tested on both Firefox and Chrome where it works without error but still raises an error on sololearn main page and app.  For this reason I have included a link to the code on github pages at https://aronnax77.github.io/web_audio_api/improved_keyboard.html");
+
 var oscType = "sine";
 var playing = false;
 var keypressed;
@@ -18,10 +26,6 @@ var notes = {
   "C5"   : 523.251             // Tenor C
 };
 
-// assign notes to keys
-var whiteKeys = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"];
-var blackKeys = ["Csh4", "Dsh4", "Fsh4", "Gsh4", "Ash4"];
-
 // obtaine a reference to the svg in the dom
 s = Snap("#monophonic");
 
@@ -38,26 +42,27 @@ decLine.attr({
   "stroke-width": 3
 });
 
-// create a group to load our external svg
-keyboardGroup = s.group();
-keyboardGroup.attr({
-  transform: "translate(10, 15)"
-});
-
 Snap.load("https://cdn.jsdelivr.net/gh/aronnax77/web_audio_api/svg/octave_keyboard_revised.svg", onSVGLoaded);
 
 function onSVGLoaded(data) {
 
-  var fragment = data.selectAll("use");
-  // assign id's to all keys
-  for(var i = 0; i < whiteKeys.length; i++) {
-    fragment[i].attr({id: whiteKeys[i]});
-  }
+  let fragment = data.select("#keys");
+  fragment.attr({transform: "translate(10, 15)"});
 
-  for(i = whiteKeys.length; i < fragment.length; i++) {
-    fragment[i].attr({id: blackKeys[i - whiteKeys.length]});
-  }
-  keyboardGroup.append(data);
+  fragment.mousedown(playNote);
+  fragment.mouseup(stopNote);
+
+  fragment.mouseover(highlight);
+  fragment.mouseout(restore);
+
+  fragment.touchstart(touchPlayNote);
+  fragment.touchend(touchStopNote);
+
+  s.append(fragment);
+}
+
+function printOut() {
+  console.log("hi");
 }
 
 // establish the audio context
@@ -76,11 +81,21 @@ osc.start(0);
 function playNote(ev) {
   osc.frequency.value = notes[ev.target.id];
   gainNode.gain.value = 1;
+  let el = s.select("#" + ev.target.id);
+  el.animate({fill: "yellow"}, 50);
   playing = true;
 }
 
 function stopNote(ev) {
   gainNode.gain.value = 0;
+  let id = ev.target.id;
+  let el = s.select("#" + id);
+  if(id.length === 2) {
+    el.animate({fill: "#ffffef"}, 50);
+  } else {
+    el.animate({fill: "#222"}, 50);
+  }
+
   playing = false;
 }
 
@@ -100,8 +115,22 @@ var touchStopNote = function(ev) {
   }
 };
 
-keyboardGroup.mousedown(playNote);
-keyboardGroup.mouseup(stopNote);
+function highlight(ev) {
+  let id = ev.target.id;
+  let el = s.select("#" + id);
+  if(id.length === 2) {
+    el.animate({fill: "#eee"}, 50);
+  } else {
+    el.animate({fill: "#666", stroke: "#666"}, 50);
+  }
+}
 
-keyboardGroup.touchstart(touchPlayNote);
-keyboardGroup.touchend(touchStopNote);
+function restore(ev) {
+  let id = ev.target.id;
+  let el = s.select("#" + id);
+  if(id.length === 2) {
+    el.animate({fill: "##ffffef"}, 50);
+  } else {
+    el.animate({fill: "#222", stroke: "#000"}, 50);
+  }
+}
