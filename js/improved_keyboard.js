@@ -4,11 +4,13 @@
               Improved monophonic keyboard.
 */
 
-alert("Please note that this code has been tested on both Firefox and Chrome where it works without error but still raises an error on sololearn main page and app.  For this reason I have included a link to the code on github pages at https://aronnax77.github.io/web_audio_api/improved_keyboard.html");
+//alert("Please note that this code has been tested on both Firefox and Chrome where it works without error but still raises an error on sololearn main page and app.  For this reason I have included a link to the code on github pages at https://aronnax77.github.io/web_audio_api/improved_keyboard.html");
 
+var osc, gainNode, audioContext, AudioContext;
 var oscType = "sine";
 var playing = false;
 var keypressed;
+var firstTime = false;  // has a key been pressed
 
 var notes = {
   "C4"   : 261.626,           // magSq()iddle C
@@ -65,20 +67,26 @@ function printOut() {
   console.log("hi");
 }
 
-// establish the audio context
-var AudioContext = window.AudioContext || windown.webkitAudioContext;
-audioContext = new AudioContext();
+function initializeOscillator() {
+  // establish the audio context
+  AudioContext = window.AudioContext || windown.webkitAudioContext;
+  audioContext = new AudioContext();
 
-var osc          = audioContext.createOscillator();
-var gainNode = audioContext.createGain();
-osc.type         = oscType;
-osc.frequency.value = 200;
-gainNode.gain.value = 0;
-osc.connect(gainNode);
-gainNode.connect(audioContext.destination);
-osc.start(0);
+  osc          = audioContext.createOscillator();
+  gainNode = audioContext.createGain();
+  osc.type         = oscType;
+  osc.frequency.value = 200;
+  gainNode.gain.value = 0;
+  osc.connect(gainNode);
+  gainNode.connect(audioContext.destination);
+  osc.start(0);
+}
 
 function playNote(ev) {
+  if(!firstTime) {
+    initializeOscillator();
+    firstTime = true;
+  }
   osc.frequency.value = notes[ev.target.id];
   gainNode.gain.value = 1;
   let el = s.select("#" + ev.target.id);
