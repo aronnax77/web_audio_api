@@ -8,7 +8,7 @@
 var audioContext, osc, gainNode;
 var oscType = "sine";
 
-var AudioContext = window.AudioContext || windown.webkitAudioContext;
+var AudioContext = window.AudioContext || window.webkitAudioContext;
 audioContext = new AudioContext();
 
 osc = audioContext.createOscillator();
@@ -25,4 +25,4 @@ function changeVol() {
 }
 
 var volume = document.querySelector("#vol");
-volume.addEventListener("change", changeVol);
+volume.addEventListener("input", changeVol);
