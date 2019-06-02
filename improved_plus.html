@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/improved_plus.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Improved Monophonic Keyboard</title>
+</head>
+<body>
+
+  <h1>Improved Monophonic Keyboard</h1>
+
+  <!-- A visual representation of our improved keyboard -->
+  <div id="keyboard">
+
+    <svg width="100%" height="100%" viewBox="0 0 220 160"
+        xmlns="http://www.w3.org/2000/svg">
+        <title>Improved Monophonic Keyboard</title>
+
+        <!-- add a background -->
+        <rect x="0" y="0" width="100%" height="100%"
+          style="fill: #333; stroke: none" />
+
+        <!-- add a red line above the keyboard -->
+        <line x1="10" y1="14" x2="210" y2="14"
+          style="stroke: red; stroke-width: 3" />
+
+        <svg id="keyboard8" x="10" y="15" width="200" height="135" viewBox="0 0 200 135"
+              xmlns="http://www.w3.org/2000/svg"
+        	  xmlns:xlink="http://www.w3.org/1999/xlink" >
+              <title>One Octave Piano Keyboard</title>
+              <desc>Eight white keys and five black giving one octave</desc>
+
+              <g id="keys">
+
+                <!-- white keys -->
+                <g id="whiteKeys"
+                  style="fill: #ffffef; stroke: #000; stroke-width: 1;">
+
+                  <rect id="C4" class="key white" x="0" y="0" width="25" height="135"/>
+                  <rect id="D4" class="key white" x="25" y="0" width="25" height="135" />
+                  <rect id="E4" class="key white" x="50" y="0" width="25" height="135" />
+                  <rect id="F4" class="key white" x="75" y="0" width="25" height="135" />
+                  <rect id="G4" class="key white" x="100" y="0" width="25" height="135" />
+                  <rect id="A4" class="key white" x="125" y="0" width="25" height="135" />
+                  <rect id="B4" class="key white" x="150" y="0" width="25" height="135" />
+                  <rect id="C5" class="key white" x="175" y="0" width="25" height="135" />
+
+                </g>
+
+                <!-- black keys -->
+                <g id="blackKeys"
+                  style="fill: #222; stroke: #000; stroke-width: 1;">
+
+                  <rect id="Csh4" class="key black" x="15" y="0" width="14" height="85" />
+                  <rect id="Dsh4" class="key black" x="46" y="0" width="14" height="85" />
+                  <rect id="Fsh4" class="key black" x="90" y="0" width="14" height="85" />
+                  <rect id="Gsh4" class="key black" x="118" y="0" width="14" height="85" />
+                  <rect id="Ash4" class="key black" x="146" y="0" width="14" height="85" />
+
+                </g>
+
+              </g>
+
+          </svg>
+
+    </svg>
+
+  </div>  <!-- Vue.js app ends here -->
+
+  <!--                          SCRIPTS                               -->
+
+  <!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+  <script src="js/improved_plus.js"></script>
+
+</body>
+</html>

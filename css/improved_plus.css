@@ -1,0 +1,16 @@
+body {
+  background-color: lightyellow;
+}
+
+h1 {
+  text-align: center;
+}
+
+#keyboard {
+  width: 440px;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid blue;
+  margin: 50px auto;
+}
